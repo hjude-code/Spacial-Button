@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "title": "Spacial Button",
   "category": "widgets",
+  "icon": "paperclip",
   "description": "A block that fills an available area and contains a button that will follow the cursor while hovering over the area",
   "example": {},
   "supports": {
