@@ -10,11 +10,14 @@
 		$url = get_permalink();
 	}
 
+	$positioning = $attributes['positioning'];
+
 
 	$wrapper_attributes = get_block_wrapper_attributes([
 		'href' => $url,
 		'target' => 'blank',
-		'style' => '--borderColor:'.$attributes['borderColor'].';'
+		'style' => '--borderColor:'.$attributes['borderColor'].';',
+		'class' => $positioning
 	]);
 ?>
 

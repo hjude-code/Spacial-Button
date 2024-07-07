@@ -24,6 +24,17 @@
 	display: block;
 }
 
+// :is(
+// 	.wp-block-cover
+// ):has(.wp-block-spc-btn-spacial-button.is-absolute){
+// 	position: relative;
+// }
+// .wp-block-spc-btn-spacial-button.is-absolute{
+// 	top: 0;
+// 	left: 0;
+// 	position: absolute;
+// }
+
 .wp-block-spc-btn-spacial-button::after,
 .wp-block-spc-btn-spacial-button::before{
 	display: var(--gridDisplay);

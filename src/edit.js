@@ -54,6 +54,15 @@ export default function Edit({attributes, setAttributes}) {
 						value={attributes.customLink}
 						onChange={(newCustomLink) => setAttributes({customLink:newCustomLink})}
 					/>
+					<SelectControl
+						label="Positioning"
+						value={attributes.positioning}
+						options={[
+							{label:'local', value:'is-local'},
+							{label:'global', value:'is-global'}
+						]}
+						onChange={ (newPositioning) => setAttributes({positioning:newPositioning}) }
+					/>
 					<ColorPicker
 						label="Cell Border Color"
 						color={attributes.borderColor}
