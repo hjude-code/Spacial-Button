@@ -35,8 +35,8 @@ const setBoxPosition = e => {
   let relYPos = e.y - containerYPos;
   let xPercent = Math.floor(relXPos / containerBox.width * 100);
   let yPercent = Math.floor(relYPos / containerBox.height * 100);
-  e.target.style.setProperty('--left', `${xPercent}%`);
-  e.target.style.setProperty('--top', `${yPercent}%`);
+  e.target.style.setProperty('--left', `${relXPos}px`);
+  e.target.style.setProperty('--top', `${relYPos}px`);
 };
 spacialContainers.forEach(container => {
   container.addEventListener("mousemove", setBoxPosition);

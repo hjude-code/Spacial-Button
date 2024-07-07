@@ -10,15 +10,21 @@
 	color: #fff;
 	padding: 2px;
 	position: relative;
-	--left:50%;
-	--top:50%;
+	--left:100%;
+	--top:100%;
+	overflow: hidden;
 }
+
+
 
 .wp-block-spc-btn-inner-container{
 	position: absolute;
-	left: var(--left);
-	top:var(--top);
-	transform: translate(-50%, -50%);
+	top:0px;
+	left: 0px;
+	transform: translate(
+		calc(var(--left) - 50%),
+		calc(var(--top) - 50%)
+		);
 	pointer-events: none;
 }
 
