@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps, InnerBlocks, InspectorControls} from '@wordpress/block-editor';
-import { PanelRow, PanelBody, SelectControl, TextControl} from '@wordpress/components';
+import { PanelRow, PanelBody, SelectControl, TextControl, ColorPicker} from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -53,6 +53,11 @@ export default function Edit({attributes, setAttributes}) {
 						label="Custom Link"
 						value={attributes.customLink}
 						onChange={(newCustomLink) => setAttributes({customLink:newCustomLink})}
+					/>
+					<ColorPicker
+						label="Cell Border Color"
+						color={attributes.borderColor}
+						onChange={(newBorderColor) => setAttributes({borderColor:newBorderColor})}
 					/>
 				</PanelBody>
 			</InspectorControls>
