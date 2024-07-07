@@ -38,6 +38,7 @@
     },
     "className": true
   },
+  "attributes": {},
   "textdomain": "spacial-button",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
