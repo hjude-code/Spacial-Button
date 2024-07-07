@@ -33,7 +33,7 @@ const setBoxPositionRel = (e) =>{
 }
 
 const setAllDimentions = (containers) =>{
-    spacialContainers.forEach((container)=>{
+    containers.forEach((container)=>{
 
         let containerDimentions = setDimentions(container)
     

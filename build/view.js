@@ -30,7 +30,7 @@ const setBoxPositionRel = e => {
   e.target.style.setProperty('--percentY', yPercent);
 };
 const setAllDimentions = containers => {
-  spacialContainers.forEach(container => {
+  containers.forEach(container => {
     let containerDimentions = setDimentions(container);
     container.style.setProperty('--outerWidth', containerDimentions.outer.width);
     container.style.setProperty('--outerHeight', containerDimentions.outer.height);
