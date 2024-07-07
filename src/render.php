@@ -13,7 +13,8 @@
 
 	$wrapper_attributes = get_block_wrapper_attributes([
 		'href' => $url,
-		'target' => 'blank'
+		'target' => 'blank',
+		'style' => '--borderColor:'.$attributes['borderColor'].';'
 	]);
 ?>
 

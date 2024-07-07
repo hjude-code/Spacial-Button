@@ -58,8 +58,11 @@ function Edit({
   attributes,
   setAttributes
 }) {
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
+    className: 'testing'
+  });
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
+    ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
     label: "Link to",
     value: attributes.linkTo,
@@ -239,7 +242,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"spc-btn/spacial-button","version":"0.1.0","title":"Spacial Button","category":"widgets","icon":"paperclip","description":"A block that fills an available area and contains a button that will follow the cursor while hovering over the area","example":{},"supports":{"html":false,"dimensions":{"minHeight":true,"aspectRatio":true},"align":true,"alignWide":true,"typography":{"fontSize":true,"lineHeight":true,"textAlign":true},"layout":true,"interactivity":true,"renaming":true,"background":{"backgroundImage":true,"backgroundSize":true},"color":{"background":true,"button":true,"link":true,"enableContrastChecker":true,"text":true},"position":{"sticky":true},"className":true},"attributes":{"linkTo":{"type":"string","default":"custom"},"customLink":{"type":"string","default":""},"borderColor":{"type":"string","default":"#000000"}},"textdomain":"spacial-button","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"spc-btn/spacial-button","version":"0.1.0","title":"Spacial Button","category":"widgets","icon":"paperclip","description":"A block that fills an available area and contains a button that will follow the cursor while hovering over the area","example":{},"supports":{"html":false,"dimensions":{"minHeight":true,"aspectRatio":true},"align":true,"alignWide":true,"typography":{"fontSize":true,"lineHeight":true,"textAlign":true},"layout":true,"interactivity":true,"renaming":true,"background":{"backgroundImage":true,"backgroundSize":true},"color":{"background":true,"button":true,"link":true,"enableContrastChecker":true,"text":true},"position":{"sticky":true},"className":true},"attributes":{"linkTo":{"type":"string","default":"custom"},"customLink":{"type":"string","default":""},"borderColor":{"type":"string","default":"#ff0000"}},"textdomain":"spacial-button","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

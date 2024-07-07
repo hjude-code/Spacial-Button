@@ -51,7 +51,7 @@
 		},
 		"borderColor":{
 			"type":"string",
-			"default":"#000000"
+			"default":"#ff0000"
 		}
 	},
 	"textdomain": "spacial-button",

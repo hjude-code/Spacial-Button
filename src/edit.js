@@ -31,8 +31,13 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({attributes, setAttributes}) {
+
+	const blockProps = useBlockProps({
+		className:'testing'
+	})
+
 	return (
-		<div { ...useBlockProps() }>
+		<div { ...blockProps}>
 			<InspectorControls>
 				<PanelBody>
 					<SelectControl
