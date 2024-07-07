@@ -9,10 +9,14 @@
  */
 .wp-block-spc-btn-spacial-button {
   position: relative;
-  --left:100%;
-  --top:100%;
+  --percentX:0.5;
+  --percentY:0.5;
+  --outerHeight:0;
+  --outerWidth:0;
   --innerHeight:0;
   --innerWidth:0;
+  --left:calc(var(--percentX)*var(--outerWidth));
+  --top:calc(var(--percentY)*var(--outerHeight));
   --gridDisplay:block;
   --borderColor:black;
   --borderWidth:2px;
@@ -25,7 +29,8 @@
   border-color: var(--borderColor);
   border-style: solid;
   border-width: var(--borderWidth);
-  box-sizing: content-box;
+  box-sizing: border-box;
+  z-index: 3;
 }
 
 .wp-block-spc-btn-spacial-button::before {
@@ -33,9 +38,11 @@
   height: var(--innerHeight);
   width: 100%;
   position: absolute;
-  top: var(--top);
-  transform: translateY(-50%);
-  left: calc(var(--borderWidth) * -1);
+  top: 0;
+  transform: translateY(calc(var(--top) - 50%));
+  left: 0;
+  border-right-width: 0px;
+  border-left-width: 0px;
 }
 
 .wp-block-spc-btn-spacial-button::after {
@@ -43,9 +50,11 @@
   height: 100%;
   width: var(--innerWidth);
   position: absolute;
-  top: calc(var(--borderWidth) * -1);
-  transform: translateX(-50%);
-  left: var(--left);
+  top: 0;
+  transform: translateX(calc(var(--left) - 50%));
+  left: 0;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
 }
 
 .wp-block-spc-btn-inner-container {
