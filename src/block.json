@@ -48,6 +48,10 @@
 		"customLink":{
 			"type":"string",
 			"default":""
+		},
+		"borderColor":{
+			"type":"string",
+			"default":"#000000"
 		}
 	},
 	"textdomain": "spacial-button",
