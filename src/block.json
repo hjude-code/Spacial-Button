@@ -40,6 +40,10 @@
 		"className": true
 	},
 	"attributes": {
+		"linkTo":{
+			"type":"string",
+			"default":"custom"
+		}
 	},
 	"textdomain": "spacial-button",
 	"editorScript": "file:./index.js",
