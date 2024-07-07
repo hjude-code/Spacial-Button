@@ -11,4 +11,10 @@
   background-color: #21759b;
   color: #fff;
   padding: 2px;
+  position: relative;
+}
+
+.wp-block-spc-btn-inner-container {
+  position: absolute;
+  transform: translate(-50%, 50%);
 }

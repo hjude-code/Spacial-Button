@@ -32,7 +32,9 @@ import './editor.scss';
 export default function Edit({attributes, setAttributes}) {
 	return (
 		<div { ...useBlockProps() }>
+			<div class="wp-block-spc-btn-inner-container">
 			<InnerBlocks/>
+			</div>
 		</div>
 	);
 }
