@@ -12,4 +12,8 @@
   --top:0;
 }
 
+.wp-block-spc-btn-inner-container {
+  pointer-events: all;
+}
+
 /*# sourceMappingURL=index.css.map*/

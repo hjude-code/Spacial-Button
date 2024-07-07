@@ -11,3 +11,7 @@
   --left:0;
   --top:0;
 }
+
+.wp-block-spc-btn-inner-container {
+  pointer-events: all;
+}
