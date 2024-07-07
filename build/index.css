@@ -7,7 +7,9 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-spc-btn-spacial-button {
-  border: 1px dotted #f00;
+  --gridDisplay:none;
+  --left:0;
+  --top:0;
 }
 
 /*# sourceMappingURL=index.css.map*/

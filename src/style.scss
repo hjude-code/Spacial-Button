@@ -6,39 +6,44 @@
  */
 
 .wp-block-spc-btn-spacial-button {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
 	position: relative;
 	--left:100%;
 	--top:100%;
 	--innerHeight:0;
 	--innerWidth:0;
+	--gridDisplay:block;
+	--borderColor:black;
+	--borderWidth:2px;
 	overflow: hidden;
+}
+
+.wp-block-spc-btn-spacial-button::after,
+.wp-block-spc-btn-spacial-button::before{
+	display: var(--gridDisplay);
+	border-color: var(--borderColor);
+	border-style: solid;
+	border-width: var(--borderWidth);
+	box-sizing: content-box;
 }
 
 .wp-block-spc-btn-spacial-button::before{
 	content:'';
-	display: block;
 	height:var(--innerHeight);
 	width: 100%;
 	position: absolute;
 	top: var(--top);
 	transform:translateY(-50%);
-	left: 0;
-	border: 1px solid black;
+	left: calc(var(--borderWidth) *-1);
 }
 
 .wp-block-spc-btn-spacial-button::after{
 	content:'';
-	display: block;
 	height:100%;
 	width: var(--innerWidth);
 	position: absolute;
-	top: 0;
+	top: calc(var(--borderWidth) *-1);
 	transform:translateX(-50%);
 	left: var(--left);
-	border: 1px solid black;
 }
 
 .wp-block-spc-btn-inner-container{

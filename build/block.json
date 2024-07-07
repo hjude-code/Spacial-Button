@@ -20,6 +20,7 @@
       "lineHeight": true,
       "textAlign": true
     },
+    "layout": true,
     "interactivity": true,
     "renaming": true,
     "background": {

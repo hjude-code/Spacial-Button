@@ -4,6 +4,8 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-spc-btn-spacial-button {
-	border: 1px dotted #f00;
-}
+ .wp-block-spc-btn-spacial-button {
+	--gridDisplay:none;
+	--left:0;
+	--top:0;
+ }
