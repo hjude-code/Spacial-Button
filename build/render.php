@@ -2,9 +2,25 @@
 /**
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
+
+	$linkTo = $attributes['linkTo'];
+	$url = $attributes['customLink'];
+
+	if($linkTo == 'post'){
+		$url = get_permalink();
+	}
+
+
+	$wrapper_attributes = get_block_wrapper_attributes([
+		'href' => $url,
+		'target' => 'blank'
+	]);
 ?>
-<div <?php echo get_block_wrapper_attributes(); ?>>
-	<div class="wp-block-spc-btn-inner-container">
+
+
+
+<a <?php echo $wrapper_attributes; ?> >
+	<span class="wp-block-spc-btn-inner-container">
 		<?php echo $content ?>
-	</div>
-</div>
+	</span>
+</a>

@@ -21,6 +21,7 @@
 	--borderColor:black;
 	--borderWidth:2px;
 	overflow: hidden;
+	display: block;
 }
 
 .wp-block-spc-btn-spacial-button::after,
@@ -31,6 +32,7 @@
 	border-width: var(--borderWidth);
 	box-sizing: border-box;
 	z-index: 3;
+	pointer-events: none;
 }
 
 .wp-block-spc-btn-spacial-button::before{
