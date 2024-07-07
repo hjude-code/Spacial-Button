@@ -23,6 +23,14 @@
 /* eslint-disable no-console */
 const spacialContainers = document.querySelectorAll('.wp-block-spc-btn-spacial-button')
 
+const setInnerContainer = (parent) =>{
+    let innerContainer = parent.childNodes[1].getBoundingClientRect()
+    return {
+        width:`${innerContainer.width}px`,
+        height:`${innerContainer.height}px`
+    }
+}
+
 const setBoxPosition = (e) =>{
     let containerBox = e.target.getBoundingClientRect()
 
@@ -40,6 +48,11 @@ const setBoxPosition = (e) =>{
 }
 
 spacialContainers.forEach((container)=>{
+
+    let innerContainer = setInnerContainer(container)
+
+    container.style.setProperty('--innerWidth', innerContainer.width)
+    container.style.setProperty('--innerHeight', innerContainer.height)
 
     container.addEventListener("mousemove", setBoxPosition)
 })

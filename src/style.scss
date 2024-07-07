@@ -12,10 +12,34 @@
 	position: relative;
 	--left:100%;
 	--top:100%;
+	--innerHeight:0;
+	--innerWidth:0;
 	overflow: hidden;
 }
 
+.wp-block-spc-btn-spacial-button::before{
+	content:'';
+	display: block;
+	height:var(--innerHeight);
+	width: 100%;
+	position: absolute;
+	top: var(--top);
+	transform:translateY(-50%);
+	left: 0;
+	border: 1px solid black;
+}
 
+.wp-block-spc-btn-spacial-button::after{
+	content:'';
+	display: block;
+	height:100%;
+	width: var(--innerWidth);
+	position: absolute;
+	top: 0;
+	transform:translateX(-50%);
+	left: var(--left);
+	border: 1px solid black;
+}
 
 .wp-block-spc-btn-inner-container{
 	position: absolute;
