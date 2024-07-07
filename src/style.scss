@@ -24,16 +24,11 @@
 	display: block;
 }
 
-// :is(
-// 	.wp-block-cover
-// ):has(.wp-block-spc-btn-spacial-button.is-absolute){
-// 	position: relative;
-// }
-// .wp-block-spc-btn-spacial-button.is-absolute{
-// 	top: 0;
-// 	left: 0;
-// 	position: absolute;
-// }
+.wp-block-spc-btn-spacial-button.is-global {
+	// position: static;
+	// --left:var(--spacial-left-global) !important;
+	// --top:var(--spacial-top-global) !important;
+}
 
 .wp-block-spc-btn-spacial-button::after,
 .wp-block-spc-btn-spacial-button::before{
@@ -53,7 +48,7 @@
 	width: 100%;
 	position: absolute;
 	top:0;
-	transform:translateY(calc(var(--top) - 50%));
+	transform:translateY(var(--realY));
 	left:0;
 	border-right-width: 0px;
 	border-left-width: 0px;
@@ -65,7 +60,7 @@
 	width: var(--innerWidth);
 	position: absolute;
 	top: 0;
-	transform:translateX(calc(var(--left) - 50%));
+	transform:translateX(var(--realX));
 	left: 0;
 	border-top-width: 0px;
 	border-bottom-width: 0px;
@@ -76,8 +71,8 @@
 	top:0px;
 	left: 0px;
 	transform: translate(
-		calc(var(--left) - 50%),
-		calc(var(--top) - 50%)
+		var(--realX),
+		var(--realY)
 		);
 	pointer-events: none;
 }
