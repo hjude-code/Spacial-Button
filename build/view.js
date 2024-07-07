@@ -26,7 +26,22 @@ var __webpack_exports__ = {};
  */
 
 /* eslint-disable no-console */
-console.log('Hello World! (from spc-btn-spacial-button block)');
+const spacialContainers = document.querySelectorAll('.wp-block-spc-btn-spacial-button');
+const setBoxPosition = e => {
+  let containerBox = e.target.getBoundingClientRect();
+  let containerXPos = containerBox.x;
+  let containerYPos = containerBox.y;
+  let relXPos = e.x - containerXPos;
+  let relYPos = e.y - containerYPos;
+  let xPercent = Math.floor(relXPos / containerBox.width * 100);
+  let yPercent = Math.floor(relYPos / containerBox.height * 100);
+  e.target.style.setProperty('--left', `${xPercent}%`);
+  e.target.style.setProperty('--top', `${yPercent}%`);
+};
+spacialContainers.forEach(container => {
+  container.addEventListener("mousemove", setBoxPosition);
+});
+
 /* eslint-enable no-console */
 /******/ })()
 ;

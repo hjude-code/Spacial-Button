@@ -12,11 +12,16 @@
   color: #fff;
   padding: 2px;
   position: relative;
+  --left:50%;
+  --top:50%;
 }
 
 .wp-block-spc-btn-inner-container {
   position: absolute;
-  transform: translate(50%, 50%);
+  left: var(--left);
+  top: var(--top);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=style-index.css.map*/
