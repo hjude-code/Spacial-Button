@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "spc-btn/spacial-button",
+  "version": "0.1.0",
+  "title": "Spacial Button",
+  "category": "widgets",
+  "description": "A block that fills an available area and contains a button that will follow the cursor while hovering over the area",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "spacial-button",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

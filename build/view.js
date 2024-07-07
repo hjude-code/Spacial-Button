@@ -1,0 +1,1 @@
+console.log("Hello World! (from spc-btn-spacial-button block)");
