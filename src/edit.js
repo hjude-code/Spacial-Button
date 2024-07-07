@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps, InnerBlocks, InspectorControls} from '@wordpress/block-editor';
-import { PanelRow, PanelBody, SelectControl } from '@wordpress/components';
+import { PanelRow, PanelBody, SelectControl, TextControl} from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -43,6 +43,11 @@ export default function Edit({attributes, setAttributes}) {
 							{label:'custom', value:'custom'}
 						]}
 						onChange={ (newLinkTo) => setAttributes({linkTo:newLinkTo}) }
+					/>
+					<TextControl
+						label="Custom Link"
+						value={attributes.customLink}
+						onChange={(newCustomLink) => setAttributes({customLink:newCustomLink})}
 					/>
 				</PanelBody>
 			</InspectorControls>

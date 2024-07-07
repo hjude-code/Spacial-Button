@@ -43,6 +43,10 @@
 		"linkTo":{
 			"type":"string",
 			"default":"custom"
+		},
+		"customLink":{
+			"type":"string",
+			"default":""
 		}
 	},
 	"textdomain": "spacial-button",

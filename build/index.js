@@ -73,6 +73,12 @@ function Edit({
     onChange: newLinkTo => setAttributes({
       linkTo: newLinkTo
     })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: "Custom Link",
+    value: attributes.customLink,
+    onChange: newCustomLink => setAttributes({
+      customLink: newCustomLink
+    })
   }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "wp-block-spc-btn-inner-container"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, null)));
@@ -233,7 +239,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"spc-btn/spacial-button","version":"0.1.0","title":"Spacial Button","category":"widgets","description":"A block that fills an available area and contains a button that will follow the cursor while hovering over the area","example":{},"supports":{"html":false,"dimensions":{"minHeight":true,"aspectRatio":true},"align":true,"alignWide":true,"typography":{"fontSize":true,"lineHeight":true,"textAlign":true},"layout":true,"interactivity":true,"renaming":true,"background":{"backgroundImage":true,"backgroundSize":true},"color":{"background":true,"button":true,"link":true,"enableContrastChecker":true,"text":true},"position":{"sticky":true},"className":true},"attributes":{"linkTo":{"type":"string","default":"custom"}},"textdomain":"spacial-button","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"spc-btn/spacial-button","version":"0.1.0","title":"Spacial Button","category":"widgets","description":"A block that fills an available area and contains a button that will follow the cursor while hovering over the area","example":{},"supports":{"html":false,"dimensions":{"minHeight":true,"aspectRatio":true},"align":true,"alignWide":true,"typography":{"fontSize":true,"lineHeight":true,"textAlign":true},"layout":true,"interactivity":true,"renaming":true,"background":{"backgroundImage":true,"backgroundSize":true},"color":{"background":true,"button":true,"link":true,"enableContrastChecker":true,"text":true},"position":{"sticky":true},"className":true},"attributes":{"linkTo":{"type":"string","default":"custom"},"customLink":{"type":"string","default":""}},"textdomain":"spacial-button","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 
