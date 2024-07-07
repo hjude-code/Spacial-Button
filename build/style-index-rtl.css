@@ -33,6 +33,7 @@
   box-sizing: border-box;
   z-index: 3;
   pointer-events: none;
+  transition: 0s !important;
 }
 
 .wp-block-spc-btn-spacial-button::before {
