@@ -15,6 +15,7 @@
   --outerWidth:0;
   --innerHeight:0;
   --innerWidth:0;
+  --posY:0px;
   --left:calc(var(--percentX)*var(--outerWidth));
   --top:calc(var(--percentY)*var(--outerHeight));
   --gridDisplay:block;
@@ -42,7 +43,7 @@
   width: 100%;
   position: absolute;
   top: 0;
-  transform: translateY(var(--realY));
+  transform: translateY(calc(var(--realY) - var(--containerY)));
   right: 0;
   border-left-width: 0px;
   border-right-width: 0px;
@@ -64,6 +65,6 @@
   position: absolute;
   top: 0px;
   right: 0px;
-  transform: translate(var(--realX), var(--realY));
+  transform: translate(var(--posX), var(--posY));
   pointer-events: none;
 }
