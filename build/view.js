@@ -33,7 +33,6 @@ function calculateSpacialRel(container, event) {
 }
 function calculateSpacialAbs(container) {}
 window.onload = () => {
-  setAllDimentions(spacialContainers);
   spacialContainers.forEach(container => {
     container.addEventListener("mousemove", e => {
       calculateSpacialRel(container, e);
