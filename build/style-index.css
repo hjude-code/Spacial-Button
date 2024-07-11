@@ -18,7 +18,7 @@
   --posY:0px;
   --left:calc(var(--percentX)*var(--outerWidth));
   --top:calc(var(--percentY)*var(--outerHeight));
-  --gridDisplay:block;
+  --gridDisplay:none;
   --borderColor:black;
   --borderWidth:2px;
   overflow: hidden;

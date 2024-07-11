@@ -25,13 +25,19 @@ function calculateSpacialRel(container, event){
     const mRelX = mX - containerBox.outer.x
     const mRelY = mY - containerBox.outer.y
 
+    // console.log(mRelX, mRelY)
+
     let precision = 1000
 
     let percentW = Math.floor((mRelX / containerBox.outer.w)*precision)/precision
-    let percentH = Math.floor((mRelY / containerBox.outer.w)*precision)/precision
+    let percentH = Math.floor((mRelY / containerBox.outer.h)*precision)/precision
+
+    // console.log(percentW, percentH)
 
     let posX = percentW * containerBox.outer.w
     let posY = percentH * containerBox.outer.h
+
+    // console.log(`x:${posX}/${containerBox.outer.w}`, `y: ${posY}/${containerBox.outer.h} - ${percentH}`)
 
     container.style.setProperty('--posX', `${posX}px`)
     container.style.setProperty('--posY', `${posY}px`)
