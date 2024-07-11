@@ -9,15 +9,10 @@
  */
 .wp-block-spc-btn-spacial-button {
   position: relative;
-  --percentX:0.5;
-  --percentY:0.5;
-  --outerHeight:0;
-  --outerWidth:0;
-  --innerHeight:0;
-  --innerWidth:0;
-  --posY:0px;
-  --left:calc(var(--percentX)*var(--outerWidth));
-  --top:calc(var(--percentY)*var(--outerHeight));
+  --posY:50svw;
+  --posX:50svh;
+  --posY_centered:calc(var(--posY) - 50%);
+  --posX_centered:calc(var(--posX) - 50%);
   --gridDisplay:none;
   --borderColor:black;
   --borderWidth:2px;
@@ -65,6 +60,6 @@
   position: absolute;
   top: 0px;
   right: 0px;
-  transform: translate(var(--posX), var(--posY));
+  transform: translate(var(--posX_centered), var(--posY_centered));
   pointer-events: none;
 }
