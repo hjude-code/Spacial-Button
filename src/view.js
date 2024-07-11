@@ -44,16 +44,17 @@ function calculateSpacialRel(container, event){
 
 }
 
-function calculateSpacialAbs(container){
-    
+function calculateSpacialAbs(container, event){
 
 }
 
 window.onload = () =>{
         spacialContainers.forEach((container)=>{
-            container.addEventListener("mousemove", (e)=>{
-                calculateSpacialRel(container, e)
-            })
+            if(container.classList.contains('is-local')){
+                container.addEventListener("mousemove", (e)=>{
+                    calculateSpacialRel(container, e)
+                })
+            }
         })
     }
 
@@ -63,34 +64,29 @@ window.onload = () =>{
 //     document.body.style.setProperty('--spacial-top-global', `50svh`);
 // })
 
-// const observeScrolling = () =>{
-//     visibleSpacial.forEach((container)=>{
-//         setContainerLocation(container)
-//     })
-// }
 
-// let visibleSpacial = []
-// const spacialObserver = new IntersectionObserver((entries)=>{
-//     entries.forEach(entry=>{
-//         if(entry.isIntersecting){
-//             visibleSpacial.push(entry.target)
-//         }else{
-//             const index = visibleSpacial.indexOf(entry.target);
-//             if (index !== -1) {
-//                 visibleSpacial.splice(index, 1);
-//             }
-//         }
-//     })
+let visibleSpacial = []
+const spacialObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            visibleSpacial.push(entry.target)
+        }else{
+            const index = visibleSpacial.indexOf(entry.target);
+            if (index !== -1) {
+                visibleSpacial.splice(index, 1);
+            }
+        }
+    })
 
-//     if(visibleSpacial.length > 0){
-//         window.addEventListener('scroll', observeScrolling)
-//     }else if(visibleSpacial.length <= 0){
-//         window.removeEventListener('scroll', observeScrolling)
-//     }
-// }, {
-//     threshold:0
-// })
+    if(visibleSpacial.length > 0){
+        // window.addEventListener('scroll', observeScrolling)
+    }else if(visibleSpacial.length <= 0){
+        // window.removeEventListener('scroll', observeScrolling)
+    }
+}, {
+    threshold:0
+})
 
-// spacialContainers.forEach((container)=>{
-//     spacialObserver.observe(container)
-// })
+spacialContainers.forEach((container)=>{
+    spacialObserver.observe(container)
+})
