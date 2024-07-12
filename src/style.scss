@@ -14,16 +14,11 @@
 	--posY_centered:calc(var(--posY) - 50%);
 	--posX_centered:calc(var(--posX) - 50%);
 
-	--gridDisplay:none;
+	--gridDisplay:block;
 	--borderColor:black;
 	--borderWidth:2px;
 	overflow: hidden;
 	display: block;
-}
-
-.wp-block-spc-btn-spacial-button.is-global {
-	// --top:calc( ( var(--percentY) * var(--outerHeight) ) - var(--containerY) ) !important;
-	// --top:var(--containerY)
 }
 
 .wp-block-spc-btn-spacial-button::after,
@@ -44,8 +39,7 @@
 	width: 100%;
 	position: absolute;
 	top:0;
-	// transform:translateY(var(--realY));
-	transform:translateY(calc( var(--realY) - var(--containerY)));
+	transform:translateY(var(--posY_centered));
 	left:0;
 	border-right-width: 0px;
 	border-left-width: 0px;
@@ -57,7 +51,7 @@
 	width: var(--innerWidth);
 	position: absolute;
 	top: 0;
-	transform:translateX(var(--realX));
+	transform:translateX(var(--posX_centered));
 	left: 0;
 	border-top-width: 0px;
 	border-bottom-width: 0px;
@@ -73,5 +67,4 @@
 		);
 	pointer-events: none;
 }
-
 
