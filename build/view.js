@@ -50,13 +50,11 @@ window.onload = () => {
     }
   });
 };
-
-// window.addEventListener('resize', ()=>{
-//     setAllDimentions(spacialContainers)
-//     document.body.style.setProperty('--spacial-left-global', `50svw`);
-//     document.body.style.setProperty('--spacial-top-global', `50svh`);
-// })
-
+const updateGlobalContainers = e => {
+  spacialContainers.forEach(container => {
+    calculateSpacialRel(container, e);
+  });
+};
 let visibleSpacial = [];
 const spacialObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -70,9 +68,9 @@ const spacialObserver = new IntersectionObserver(entries => {
     }
   });
   if (visibleSpacial.length > 0) {
-    // window.addEventListener('scroll', observeScrolling)
+    window.addEventListener('mousemove', updateGlobalContainers);
   } else if (visibleSpacial.length <= 0) {
-    // window.removeEventListener('scroll', observeScrolling)
+    window.removeEventListener('mousemove', updateGlobalContainers);
   }
 }, {
   threshold: 0
