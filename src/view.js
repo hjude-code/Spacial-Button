@@ -60,7 +60,7 @@ window.onload = () =>{
 
 
 const updateGlobalContainers = (e) =>{
-    spacialContainers.forEach((container)=>{
+    visibleSpacial.forEach((container)=>{
         calculateSpacialRel(container, e)
     })
 }
@@ -89,5 +89,7 @@ const spacialObserver = new IntersectionObserver((entries)=>{
 })
 
 spacialContainers.forEach((container)=>{
-    spacialObserver.observe(container)
+    if(container.classList.contains('is-global')){
+        spacialObserver.observe(container)
+    }
 })

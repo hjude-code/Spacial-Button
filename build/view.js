@@ -51,7 +51,7 @@ window.onload = () => {
   });
 };
 const updateGlobalContainers = e => {
-  spacialContainers.forEach(container => {
+  visibleSpacial.forEach(container => {
     calculateSpacialRel(container, e);
   });
 };
@@ -76,7 +76,9 @@ const spacialObserver = new IntersectionObserver(entries => {
   threshold: 0
 });
 spacialContainers.forEach(container => {
-  spacialObserver.observe(container);
+  if (container.classList.contains('is-global')) {
+    spacialObserver.observe(container);
+  }
 });
 /******/ })()
 ;
