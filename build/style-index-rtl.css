@@ -63,3 +63,7 @@
   transform: translate(var(--posX_centered), var(--posY_centered));
   pointer-events: none;
 }
+
+.wp-block-spc-btn-inner-container > *:last-child {
+  margin-bottom: 0px !important;
+}
