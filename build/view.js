@@ -13,9 +13,20 @@ function calculateContainerBox(container) {
       y: containerBox.y,
       w: containerBox.width,
       h: containerBox.height
+    },
+    inner: {
+      x: innerContainerBox.x,
+      y: innerContainerBox.y,
+      w: innerContainerBox.width,
+      h: innerContainerBox.height
     }
   };
   return values;
+}
+function calculateInnerBoxSize(container) {
+  const containerBox = calculateContainerBox(container);
+  container.style.setProperty('--innerW', `${containerBox.inner.w}px`);
+  container.style.setProperty('--innerH', `${containerBox.inner.h}px`);
 }
 function calculateSpacialRel(container, event) {
   const containerBox = calculateContainerBox(container);
@@ -40,9 +51,9 @@ function calculateSpacialRel(container, event) {
   container.style.setProperty('--posX', `${posX}px`);
   container.style.setProperty('--posY', `${posY}px`);
 }
-function calculateSpacialAbs(container, event) {}
 window.onload = () => {
   spacialContainers.forEach(container => {
+    calculateInnerBoxSize(container);
     if (container.classList.contains('is-local')) {
       container.addEventListener("mousemove", e => {
         calculateSpacialRel(container, e);

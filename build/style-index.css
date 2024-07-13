@@ -34,7 +34,7 @@
 
 .wp-block-spc-btn-spacial-button::before {
   content: "";
-  height: var(--innerHeight);
+  height: var(--innerH);
   width: 100%;
   position: absolute;
   top: 0;
@@ -47,7 +47,7 @@
 .wp-block-spc-btn-spacial-button::after {
   content: "";
   height: 100%;
-  width: var(--innerWidth);
+  width: var(--innerW);
   position: absolute;
   top: 0;
   transform: translateX(var(--posX_centered));
