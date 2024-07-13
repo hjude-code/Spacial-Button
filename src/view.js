@@ -44,10 +44,6 @@ function calculateSpacialRel(container, event){
 
 }
 
-function calculateSpacialAbs(container, event){
-
-}
-
 window.onload = () =>{
         spacialContainers.forEach((container)=>{
             if(container.classList.contains('is-local')){
