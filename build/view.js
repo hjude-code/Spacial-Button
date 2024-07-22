@@ -70,15 +70,19 @@ window.onload = () => {
 };
 let windowScrollTopBase = window.scrollY;
 const updateGlobalContainers = e => {
-  visibleSpacial.forEach(container => {
-    calculateSpacialRel(container, e);
+  spacialContainers.forEach(container => {
+    if (container.classList.contains('is-global')) {
+      calculateSpacialRel(container, e);
+    }
   });
 };
 function updateGlobalContainersOnScroll(e) {
   let newScrollTop = window.scrollY;
   let scrollAmount = windowScrollTopBase - newScrollTop;
-  visibleSpacial.forEach(container => {
-    updatePosOnScroll(container, scrollAmount);
+  spacialContainers.forEach(container => {
+    if (container.classList.contains('is-global')) {
+      updatePosOnScroll(container, scrollAmount);
+    }
   });
   windowScrollTopBase = newScrollTop;
 }
