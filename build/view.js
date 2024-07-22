@@ -51,6 +51,13 @@ function calculateSpacialRel(container, event) {
   container.style.setProperty('--posX', `${posX}px`);
   container.style.setProperty('--posY', `${posY}px`);
 }
+function updatePosOnScroll(container, scrollAmount) {
+  let containerStyles = window.getComputedStyle(container);
+  let containerPosYStyle = containerStyles.getPropertyValue('--posY');
+  let oldContainerY = parseInt(containerPosYStyle);
+  let newContainerY = oldContainerY - scrollAmount;
+  container.style.setProperty('--posY', `${newContainerY}px`);
+}
 window.onload = () => {
   spacialContainers.forEach(container => {
     calculateInnerBoxSize(container);
@@ -61,11 +68,20 @@ window.onload = () => {
     }
   });
 };
+let windowScrollTopBase = window.scrollY;
 const updateGlobalContainers = e => {
   visibleSpacial.forEach(container => {
     calculateSpacialRel(container, e);
   });
 };
+function updateGlobalContainersOnScroll(e) {
+  let newScrollTop = window.scrollY;
+  let scrollAmount = windowScrollTopBase - newScrollTop;
+  visibleSpacial.forEach(container => {
+    updatePosOnScroll(container, scrollAmount);
+  });
+  windowScrollTopBase = newScrollTop;
+}
 let visibleSpacial = [];
 const spacialObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -80,8 +96,10 @@ const spacialObserver = new IntersectionObserver(entries => {
   });
   if (visibleSpacial.length > 0) {
     window.addEventListener('mousemove', updateGlobalContainers);
+    window.addEventListener('scroll', updateGlobalContainersOnScroll);
   } else if (visibleSpacial.length <= 0) {
     window.removeEventListener('mousemove', updateGlobalContainers);
+    window.removeEventListener('scroll', updateGlobalContainersOnScroll);
   }
 }, {
   threshold: 0
