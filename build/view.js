@@ -108,6 +108,8 @@ const spacialObserver = new IntersectionObserver(entries => {
 }, {
   threshold: 0
 });
+function updateBoxSizes(entries) {}
+const ResizeSpacialObserver = new ResizeObserver(updateBoxSizes);
 spacialContainers.forEach(container => {
   if (container.classList.contains('is-global')) {
     spacialObserver.observe(container);
