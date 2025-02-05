@@ -16,7 +16,7 @@ import { useEntityProp, store as coreStore } from '@wordpress/core-data';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { useMemo, useEffect, useState } from '@wordpress/element';
 import { useBlockProps, InnerBlocks, InspectorControls} from '@wordpress/block-editor';
-import { Panel, PanelRow, PanelBody, SelectControl, TextControl, ColorPicker} from '@wordpress/components';
+import { Panel, PanelRow, PanelBody, SelectControl, TextControl, ToggleControl, ColorPicker} from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -104,14 +104,21 @@ export default function Edit({
 	}
 	
 
-	const blockProps = useBlockProps({
-		style:blockStyles
-	})
+	const blockProps = useBlockProps(
+		attributes.useFeaturedImage ? {style:blockStyles} : {}
+	)
 
 	return (
 		<div { ...blockProps}>
 			<InspectorControls>
-				<Panel header="Controls">
+				<Panel header="Controls" initialOpen={ false }>
+					<PanelBody title="Featured Background">
+						<ToggleControl
+							label="use post featured image as background"
+							checked={attributes.useFeaturedImage}
+							onChange={ (newUseFeaturedImage) => setAttributes({useFeaturedImage:newUseFeaturedImage}) }
+						/>
+					</PanelBody>
 					<PanelBody title="Linking" initialOpen={ false }>
 						<SelectControl
 							label="linking"
@@ -127,7 +134,6 @@ export default function Edit({
 							value={attributes.customLink}
 							onChange={(newCustomLink) => setAttributes({customLink:newCustomLink})}
 						/>
-						
 					</PanelBody>
 					<PanelBody title="crosshairs" initialOpen={ false }>
 						<SelectControl
