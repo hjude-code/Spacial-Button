@@ -11,6 +11,10 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
+
+import { useEntityProp, store as coreStore } from '@wordpress/core-data';
+import { useSelect, useDispatch } from '@wordpress/data';
+import { useMemo, useEffect, useState } from '@wordpress/element';
 import { useBlockProps, InnerBlocks, InspectorControls} from '@wordpress/block-editor';
 import { PanelRow, PanelBody, SelectControl, TextControl, ColorPicker} from '@wordpress/components';
 
@@ -30,10 +34,78 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit({attributes, setAttributes}) {
+export default function Edit({
+	clientId,
+	attributes,
+	setAttributes,
+	context: { postId, postType: postTypeSlug, queryId },
+}) {
+
+	const isDescendentOfQueryLoop = Number.isFinite( queryId );
+	const [ temporaryURL, setTemporaryURL ] = useState();
+
+	const [ storedFeaturedImage, setFeaturedImage ] = useEntityProp(
+		'postType',
+		postTypeSlug,
+		'featured_media',
+		postId
+	);
+
+	const [ postContent ] = useEntityProp(
+		'postType',
+		postTypeSlug,
+		'content',
+		postId
+	);
+
+	const featuredImage = useMemo( () => {
+		if ( storedFeaturedImage ) {
+			return storedFeaturedImage;
+		}
+
+		const imageOpener =
+			/<!--\s+wp:(?:core\/)?image\s+(?<attrs>{(?:(?:[^}]+|}+(?=})|(?!}\s+\/?-->).)*)?}\s+)?-->/.exec(
+				postContent
+			);
+		const imageId =
+			imageOpener?.groups?.attrs &&
+			JSON.parse( imageOpener.groups.attrs )?.id;
+		return imageId;
+	}, [ storedFeaturedImage, postContent ] );
+
+	const { media, postType, postPermalink } = useSelect(
+		( select ) => {
+			const { getMedia, getPostType, getEditedEntityRecord } =
+				select( coreStore );
+			return {
+				media:
+					featuredImage &&
+					getMedia( featuredImage, {
+						context: 'view',
+					} ),
+				postType: postTypeSlug && getPostType( postTypeSlug ),
+				postPermalink: getEditedEntityRecord(
+					'postType',
+					postTypeSlug,
+					postId
+				)?.link,
+			};
+		},
+		[ featuredImage, postTypeSlug, postId ]
+	);
+
+	const mediaUrl =
+		media?.media_details?.sizes?.[ "thumbnail" ]?.source_url ||
+		media?.source_url;
+
+	
+	const blockStyles = {
+		backgroundImage:`url('${mediaUrl}')`
+	}
+	
 
 	const blockProps = useBlockProps({
-		className:'testing'
+		style:blockStyles
 	})
 
 	return (
