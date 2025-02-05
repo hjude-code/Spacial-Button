@@ -16,7 +16,7 @@ import { useEntityProp, store as coreStore } from '@wordpress/core-data';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { useMemo, useEffect, useState } from '@wordpress/element';
 import { useBlockProps, InnerBlocks, InspectorControls} from '@wordpress/block-editor';
-import { PanelRow, PanelBody, SelectControl, TextControl, ColorPicker} from '@wordpress/components';
+import { Panel, PanelRow, PanelBody, SelectControl, TextControl, ColorPicker} from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -111,36 +111,41 @@ export default function Edit({
 	return (
 		<div { ...blockProps}>
 			<InspectorControls>
-				<PanelBody>
-					<SelectControl
-						label="Link to"
-						value={attributes.linkTo}
-						options={[
-							{label:'post', value:'post'},
-							{label:'custom', value:'custom'}
-						]}
-						onChange={ (newLinkTo) => setAttributes({linkTo:newLinkTo}) }
-					/>
-					<TextControl
-						label="Custom Link"
-						value={attributes.customLink}
-						onChange={(newCustomLink) => setAttributes({customLink:newCustomLink})}
-					/>
-					<SelectControl
-						label="Positioning"
-						value={attributes.positioning}
-						options={[
-							{label:'local', value:'is-local'},
-							{label:'global', value:'is-global'}
-						]}
-						onChange={ (newPositioning) => setAttributes({positioning:newPositioning}) }
-					/>
-					<ColorPicker
-						label="Cell Border Color"
-						color={attributes.borderColor}
-						onChange={(newBorderColor) => setAttributes({borderColor:newBorderColor})}
-					/>
-				</PanelBody>
+				<Panel header="Controls">
+					<PanelBody title="Linking" initialOpen={ false }>
+						<SelectControl
+							label="linking"
+							value={attributes.linkTo}
+							options={[
+								{label:'post', value:'post'},
+								{label:'custom', value:'custom'}
+							]}
+							onChange={ (newLinkTo) => setAttributes({linkTo:newLinkTo}) }
+						/>
+						<TextControl
+							label="Custom Link"
+							value={attributes.customLink}
+							onChange={(newCustomLink) => setAttributes({customLink:newCustomLink})}
+						/>
+						
+					</PanelBody>
+					<PanelBody title="crosshairs" initialOpen={ false }>
+						<SelectControl
+								label="Positioning"
+								value={attributes.positioning}
+								options={[
+									{label:'local', value:'is-local'},
+									{label:'global', value:'is-global'}
+								]}
+								onChange={ (newPositioning) => setAttributes({positioning:newPositioning}) }
+							/>
+							<ColorPicker
+								label="Cell Border Color"
+								color={attributes.borderColor}
+								onChange={(newBorderColor) => setAttributes({borderColor:newBorderColor})}
+							/>
+					</PanelBody>
+				</Panel>
 			</InspectorControls>
 			<div class="wp-block-spc-btn-inner-container">
 			<InnerBlocks/>
