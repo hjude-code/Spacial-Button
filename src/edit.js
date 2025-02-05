@@ -98,7 +98,8 @@ export default function Edit({
 		media?.media_details?.sizes?.[ "large" ]?.source_url ||
 		media?.source_url;
 
-	
+	setAttributes({backgroundImage:mediaUrl})
+
 	const blockStyles = {
 		backgroundImage:`url('${mediaUrl}')`
 	}

@@ -51,7 +51,7 @@
 		},
 		"borderColor":{
 			"type":"string",
-			"default":"#000000"
+			"default":"#FF0000"
 		},
 		"positioning":{
 			"type":"string",
@@ -62,7 +62,8 @@
 			"default":false
 		},
 		"backgroundImage":{
-			"type":"string"
+			"type":"string",
+			"default":"#"
 		}
 	},
 	"textdomain": "spacial-button",

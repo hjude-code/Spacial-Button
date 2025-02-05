@@ -12,13 +12,27 @@
 
 	$positioning = $attributes['positioning'];
 
-	$featureURL = get_the_post_thumbnail_url( $post = null, $size = 'post-thumbnail' );
+	$styles = [
+		'--borderColor:'.$attributes['borderColor'].'; '
+	];
+
+	
+
+	if($attributes['useFeaturedImage']){
+		$post_id = get_the_ID();
+		$featured_image_url = get_the_post_thumbnail_url($post_id, 'full');
+		$styles[] = "background-image:url(".$featured_image_url.") !important ;";
+	}
+
+	$style = " ".join($styles);
+	
+
 	
 
 	$wrapper_attributes = get_block_wrapper_attributes([
 		'href' => $url,
 		'target' => 'blank',
-		'style' => '--borderColor:'.$attributes['borderColor'].';',
+		'style' => $style,
 		'class' => $positioning
 	]);
 ?>
@@ -27,6 +41,6 @@
 
 <a <?php echo $wrapper_attributes; ?> >
 	<span class="wp-block-spc-btn-inner-container">
-		<?php echo $featureURL ?>
+		<?php echo $content ?>
 	</span>
 </a>
