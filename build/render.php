@@ -12,6 +12,8 @@
 
 	$positioning = $attributes['positioning'];
 
+	$featureURL = get_the_post_thumbnail_url( $post = null, $size = 'post-thumbnail' );
+	
 
 	$wrapper_attributes = get_block_wrapper_attributes([
 		'href' => $url,
@@ -25,6 +27,6 @@
 
 <a <?php echo $wrapper_attributes; ?> >
 	<span class="wp-block-spc-btn-inner-container">
-		<?php echo $content ?>
+		<?php echo $featureURL ?>
 	</span>
 </a>

@@ -56,6 +56,13 @@
     "positioning": {
       "type": "string",
       "default": "is-local"
+    },
+    "useFeaturedImage": {
+      "type": "boolean",
+      "default": false
+    },
+    "backgroundImage": {
+      "type": "string"
     }
   },
   "textdomain": "spacial-button",
