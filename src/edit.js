@@ -95,7 +95,7 @@ export default function Edit({
 	);
 
 	const mediaUrl =
-		media?.media_details?.sizes?.[ "thumbnail" ]?.source_url ||
+		media?.media_details?.sizes?.[ "large" ]?.source_url ||
 		media?.source_url;
 
 	

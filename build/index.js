@@ -104,7 +104,7 @@ function Edit({
       postPermalink: getEditedEntityRecord('postType', postTypeSlug, postId)?.link
     };
   }, [featuredImage, postTypeSlug, postId]);
-  const mediaUrl = media?.media_details?.sizes?.["thumbnail"]?.source_url || media?.source_url;
+  const mediaUrl = media?.media_details?.sizes?.["large"]?.source_url || media?.source_url;
   const blockStyles = {
     backgroundImage: `url('${mediaUrl}')`
   };
