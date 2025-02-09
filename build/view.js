@@ -68,9 +68,14 @@ window.onload = () => {
     }
   });
 };
+window.addEventListener('resize', () => {
+  spacialContainers.forEach(container => {
+    calculateInnerBoxSize(container);
+  });
+});
 let windowScrollTopBase = window.scrollY;
 const updateGlobalContainers = e => {
-  spacialContainers.forEach(container => {
+  visibleSpacial.forEach(container => {
     if (container.classList.contains('is-global')) {
       calculateSpacialRel(container, e);
     }
@@ -79,7 +84,7 @@ const updateGlobalContainers = e => {
 function updateGlobalContainersOnScroll(e) {
   let newScrollTop = window.scrollY;
   let scrollAmount = windowScrollTopBase - newScrollTop;
-  spacialContainers.forEach(container => {
+  visibleSpacial.forEach(container => {
     if (container.classList.contains('is-global')) {
       updatePosOnScroll(container, scrollAmount);
     }
@@ -108,8 +113,12 @@ const spacialObserver = new IntersectionObserver(entries => {
 }, {
   threshold: 0
 });
-function updateBoxSizes(entries) {}
-const ResizeSpacialObserver = new ResizeObserver(updateBoxSizes);
+function updateBoxSizes(entries) {
+  console.log(entries);
+}
+
+// const ResizeSpacialObserver = new ResizeObserver(updateBoxSizes);
+
 spacialContainers.forEach(container => {
   if (container.classList.contains('is-global')) {
     spacialObserver.observe(container);
