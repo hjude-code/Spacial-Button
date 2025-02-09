@@ -1,4 +1,9 @@
 const spacialContainers = document.querySelectorAll('.wp-block-spc-btn-spacial-button')
+let windowScrollTopBase = window.scrollY
+let mousePos = {
+    x:0,
+    y:0
+}
 
 function calculateContainerBox(container){
     const containerBox = container.getBoundingClientRect()
@@ -24,8 +29,8 @@ function calculateContainerBox(container){
 
 function calculateInnerBoxSize(container){
     const containerBox = calculateContainerBox(container)
-    container.style.setProperty('--innerW', `${containerBox.inner.w}px`)
-    container.style.setProperty('--innerH', `${containerBox.inner.h}px`)
+    container.style.setProperty('--innerW', `${Math.round(containerBox.inner.w)}px`)
+    container.style.setProperty('--innerH', `${Math.round(containerBox.inner.h)}px`)
 }
 
 function calculateSpacialRel(container, event){
@@ -37,19 +42,13 @@ function calculateSpacialRel(container, event){
     const mRelX = mX - containerBox.outer.x
     const mRelY = mY - containerBox.outer.y
 
-    // console.log(mRelX, mRelY)
-
     let precision = 1000
 
     let percentW = Math.floor((mRelX / containerBox.outer.w)*precision)/precision
     let percentH = Math.floor((mRelY / containerBox.outer.h)*precision)/precision
 
-    // console.log(percentW, percentH)
-
-    let posX = percentW * containerBox.outer.w
-    let posY = percentH * containerBox.outer.h
-
-    // console.log(`x:${posX}/${containerBox.outer.w}`, `y: ${posY}/${containerBox.outer.h} - ${percentH}`)
+    let posX = Math.round(percentW * containerBox.outer.w)
+    let posY = Math.round(percentH * containerBox.outer.h)
 
     container.style.setProperty('--posX', `${posX}px`)
     container.style.setProperty('--posY', `${posY}px`)
@@ -61,7 +60,7 @@ function updatePosOnScroll(container, scrollAmount){
     let containerPosYStyle = containerStyles.getPropertyValue('--posY')
     let oldContainerY = parseInt(containerPosYStyle)
 
-    let newContainerY = oldContainerY - scrollAmount
+    let newContainerY = Math.round(oldContainerY - scrollAmount)
 
     container.style.setProperty('--posY', `${newContainerY}px`)
     
@@ -89,16 +88,20 @@ window.addEventListener('resize', ()=>{
 
 
 
-let windowScrollTopBase = window.scrollY
+
 
 const updateGlobalContainers = (e) =>{
 
-    
+    mousePos.x = e.x
+    mousePos.y = e.y
+    console.log(mousePos)
+
     visibleSpacial.forEach((container)=>{
         if(container.classList.contains('is-global')){
-            calculateSpacialRel(container, e)
+            calculateSpacialRel(container, mousePos)
         }
     })
+
 }
 function updateGlobalContainersOnScroll(e){
     let newScrollTop = window.scrollY
@@ -106,6 +109,7 @@ function updateGlobalContainersOnScroll(e){
     visibleSpacial.forEach((container=>{
         if(container.classList.contains('is-global')){
             updatePosOnScroll(container, scrollAmount)
+            calculateSpacialRel(container, mousePos)
         }
     }))
     windowScrollTopBase = newScrollTop
@@ -136,13 +140,6 @@ const spacialObserver = new IntersectionObserver((entries)=>{
 }, {
     threshold:0
 })
-
-function updateBoxSizes(entries){
-    console.log(entries)
-
-}
-
-// const ResizeSpacialObserver = new ResizeObserver(updateBoxSizes);
 
 spacialContainers.forEach((container)=>{
     if(container.classList.contains('is-global')){
