@@ -18,12 +18,25 @@
 	--gridDisplay:block;
 	--borderColor:black;
 	--borderWidth:2px;
-	overflow: hidden;
 	display: block;
+}
+
+@media screen and (max-width:768px) {
+	.wp-block-spc-btn-inner-container{
+		position: sticky;
+		top: 42.5px;
+		outline-width: var(--borderWidth);
+		outline-color: var(--borderColor);
+		outline-style: solid;
+		display: block;
+	}
 }
 
 @media screen and (min-width:768px) {
 	
+	.wp-block-spc-btn-spacial-button {
+		overflow: hidden;
+	}
 	
 	.wp-block-spc-btn-spacial-button::after,
 	.wp-block-spc-btn-spacial-button::before{
