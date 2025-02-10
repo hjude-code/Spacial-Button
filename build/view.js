@@ -72,7 +72,6 @@ window.addEventListener('resize', () => {
 const updateGlobalContainers = e => {
   mousePos.x = e.x;
   mousePos.y = e.y;
-  console.log(mousePos);
   visibleSpacial.forEach(container => {
     if (container.classList.contains('is-global')) {
       calculateSpacialRel(container, mousePos);
