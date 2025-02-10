@@ -14,6 +14,8 @@
 
 .wp-block-spc-btn-inner-container {
   pointer-events: all;
+  transform: none !important;
+  position: relative;
 }
 
 /*# sourceMappingURL=index.css.map*/
