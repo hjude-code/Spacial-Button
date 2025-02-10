@@ -9,6 +9,7 @@
  */
 .wp-block-spc-btn-spacial-button {
   position: relative;
+  --stickyTop:0px;
   --posY:50svw;
   --posX:50svh;
   --posY_centered:calc(var(--posY) - 50%);
@@ -22,7 +23,7 @@
 @media screen and (max-width: 768px) {
   .wp-block-spc-btn-inner-container {
     position: sticky;
-    top: 42.5px;
+    top: var(--stickyTop);
     outline-width: var(--borderWidth);
     outline-color: var(--borderColor);
     outline-style: solid;

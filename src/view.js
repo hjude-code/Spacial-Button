@@ -5,6 +5,15 @@ let mousePos = {
     y:0
 }
 
+function setStickyTop(){
+    let header = document.querySelector('header')
+    let headerHeight = Math.round(header.getBoundingClientRect().height)
+
+    spacialContainers.forEach((container)=>{
+       container.style.setProperty('--stickyTop', `${headerHeight}px`)
+    })
+}
+
 function calculateContainerBox(container){
     const containerBox = container.getBoundingClientRect()
     const innerContainerBox = container.childNodes[1].getBoundingClientRect()
@@ -78,12 +87,16 @@ window.onload = () =>{
                 })
             }
         })
+
+        setStickyTop()
 }
 
 window.addEventListener('resize', ()=>{
     spacialContainers.forEach((container)=>{
         calculateInnerBoxSize(container)
     }) 
+
+    setStickyTop()
 })
 
 
@@ -136,6 +149,7 @@ const spacialObserver = new IntersectionObserver((entries)=>{
         window.removeEventListener('mousemove', updateGlobalContainers)
         window.removeEventListener('scroll', updateGlobalContainersOnScroll)
     }
+
 }, {
     threshold:0
 })
