@@ -37,7 +37,7 @@
   .wp-block-spc-btn-spacial-button::after,
   .wp-block-spc-btn-spacial-button::before {
     display: var(--gridDisplay);
-    border-color: var(--borderColors);
+    border-color: var(--borderColor);
     border-style: solid;
     border-width: var(--borderWidth);
     box-sizing: border-box;
