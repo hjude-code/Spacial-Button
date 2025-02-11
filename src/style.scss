@@ -14,11 +14,11 @@
 
 	--posY_centered:calc(var(--posY) - 50%);
 	--posX_centered:calc(var(--posX) - 50%);
-
 	--gridDisplay:block;
 	--borderColor:black;
 	--borderWidth:2px;
 	display: block;
+	text-decoration: none !important;
 }
 
 @media screen and (max-width:768px) {
